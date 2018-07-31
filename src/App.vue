@@ -13,13 +13,14 @@ export default {
 
 <style>
 .container {
-  height: 100%;
+  min-height: 100vh;
+  /* background-color: #abc; */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
   box-sizing: border-box;
+}
+.card {
+  box-shadow: 0px 4px 12px 0px rgba(38, 78, 128, 0.16);
 }
 /* this rule will be remove */
 * {

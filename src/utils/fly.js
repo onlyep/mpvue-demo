@@ -2,6 +2,7 @@ var Fly = require('flyio/dist/npm/wx')
 var fly = new Fly // eslint-disable-line
 
 // 配置请求基地址
+// fly.config.baseURL = 'https://www.fhtower.com/fhtowers'
 fly.config.baseURL = 'https://app.fhtower.com/fhtowers'
 
 // 添加请求拦截器
@@ -9,7 +10,7 @@ fly.interceptors.request.use((request) => {
   // 给所有请求添加自定义header
   request.headers['X-Tag'] = 'flyio'
   // 打印出请求体
-  console.log(request.body)
+  // console.log(request.body)
   // 终止请求
   // var err=new Error("xxx")
   // err.request=request
