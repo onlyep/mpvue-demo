@@ -6,6 +6,6 @@ app.$mount()
 
 export default {
   config: {
-    navigationBarTitleText: '烽火预警详情'
+    navigationBarTitleText: '文章列表'
   }
 }

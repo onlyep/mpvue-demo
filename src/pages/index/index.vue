@@ -7,39 +7,37 @@
         <img :src="bannerInfo.imageUrl">
       </div>
     </div>
-    <div class="article-wrap">
-      <article-list :list="articleList"></article-list>
-    </div>
+    <div class="search card" @click="viewSearch">搜索。。</div>
+    <div class="more card" @click="viewMore">更多。。</div>
   </div>
 </template>
 
 <script>
 import api from '../../utils/api'
-import ArticleList from '@/components/ArticleList'
 
 export default {
   data() {
     return {
       userInfo: {},
-      bannerInfo: {},
-      articleList: []
+      bannerInfo: {}
     }
   },
 
-  components: {
-    ArticleList
+  methods: {
+    viewSearch() {
+      const url = '/pages/search/main'
+      wx.navigateTo({ url })
+    },
+    viewMore() {
+      const url = '/pages/article/main'
+      wx.navigateTo({ url })
+    }
   },
 
-  methods: {},
-
-  async created() {
+  async onLoad() {
     const json = await api.warnArticle()
     this.bannerInfo = json.data
     console.log(json)
-    // 文章列表
-    const articleList = await api.articleList()
-    console.log(articleList)
-    this.articleList = articleList.data
   }
 }
 </script>
@@ -72,9 +70,15 @@ export default {
       img {
         width: 100%;
         height: 100%;
-        filter: blur(5rpx);
+        filter: blur(10rpx);
       }
     }
+  }
+  .search,
+  .more {
+    margin-top: 80rpx;
+    padding: 40rpx 60rpx;
+    width: 300rpx;
   }
 }
 </style>

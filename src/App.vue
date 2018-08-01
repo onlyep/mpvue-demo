@@ -14,9 +14,9 @@ export default {
 <style>
 .container {
   min-height: 100vh;
-  /* background-color: #abc; */
   display: flex;
   flex-direction: column;
+  border-top: 1rpx solid #CFD9E6;
   box-sizing: border-box;
 }
 .card {

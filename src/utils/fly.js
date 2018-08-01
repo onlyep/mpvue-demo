@@ -5,10 +5,13 @@ var fly = new Fly // eslint-disable-line
 // fly.config.baseURL = 'https://www.fhtower.com/fhtowers'
 fly.config.baseURL = 'https://app.fhtower.com/fhtowers'
 
+var token = wx.getStorageSync('token')
 // 添加请求拦截器
 fly.interceptors.request.use((request) => {
   // 给所有请求添加自定义header
-  request.headers['X-Tag'] = 'flyio'
+  if (!token) {} else {
+    request.headers['token'] = token
+  }
   // 打印出请求体
   // console.log(request.body)
   // 终止请求
